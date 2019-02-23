@@ -57,7 +57,7 @@ Name | Meaning
 **JNO** | O = 0
 
 ### Conditional Jumps
-(assuming execution just after CMP)
+(assuming execution just after **CMP**)
 
 Name | Meaning
 ---|---
