@@ -8,10 +8,10 @@ Name | Meaning
 **EDX** | Data
 
 ```
-	|  AX  | 16 bit
-        |AH||AL| 8 bit
-================
-|     EAX      | 32 bit
+	            |      AX      | 16 bit
+                |  AH  ||  AL  | 8 bit
+================================
+|              EAX             | 32 bit
 ```
 
 
@@ -73,7 +73,7 @@ Name | Meaning
 # Code Examples
 
 ### Print "Hello World" 10 times
-```
+```x86asm
 char msg[] = "Hello World\n"; // declare variables in C
 
 _asm {
@@ -90,7 +90,7 @@ _asm {
 return 0;
 ```
 ### Fibonacci up to 1000
-```
+```x86asm
 while1:
 	mov eax,fib2
 	cmp eax,1000
@@ -105,7 +105,7 @@ while1:
 end_while:
 ```
 ### Sum the elements of an array
-```
+```x86asm
 int myarray[5]; // declaration of an array of integers
 
 myarray[0] = 1;
