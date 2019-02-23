@@ -1,18 +1,18 @@
-### Registers ###
+# Registers
  
 EAX - Accumulator
 EBX - Base
 ECX - Counter
 EDX - Data
 
-		|  AX  | 16 bit
+	|  AX  | 16 bit
         |AH||AL| 8 bit
 ================
 |     EAX      | 32 bit
 
 
 
-### Flags ###
+# Flags
 
 S - Sign
 Z - Zero
@@ -20,7 +20,7 @@ C - Carry
 O - Overflow
 
 
-### Instructions ###
+# Instructions
 
 MOV x, y - Assign y to x
 INC x    - Increment x by one
@@ -33,9 +33,9 @@ LEA x, y - Get adress of y and store it in x (Lead Effective Adress) (Often used
 LOOP x   - Decrement ECX and Jump to x if not Zero
 
 
-### Jumps ###
+# Jumps
 
-# Flag Jumps #
+### Flag Jumps
 
 JS  - S = 1
 JNS - S = 0
@@ -46,7 +46,7 @@ JNC - C = 0
 JO  - O = 1
 JNO - O = 0
 
-# Conditional Jumps #
+### Conditional Jumps
 (assuming execution just after CMP)
 
 JE      - Equal
@@ -58,9 +58,9 @@ JLE/JNG - Less or Equal (Not Greater)
 
 
 
-### CODE EXAMPLES ###
+# Code Examples
 
-# Print "Hello World" 10 times #
+### Print "Hello World" 10 times
 
 char msg[] = "Hello World\n"; // declare variables in C
 
@@ -77,7 +77,7 @@ _asm {
 }
 return 0;
 
-# Fibonacci up to 1000 #
+### Fibonacci up to 1000
 
 while1:
 	mov eax,fib2
@@ -92,7 +92,7 @@ while1:
 	jmp while1
 end_while:
 
-# Sum the elements of an array #
+### Sum the elements of an array
 
 int myarray[5]; // declaration of an array of integers
 
