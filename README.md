@@ -5,32 +5,38 @@ EBX - Base
 ECX - Counter
 EDX - Data
 
+```
 	|  AX  | 16 bit
         |AH||AL| 8 bit
 ================
 |     EAX      | 32 bit
+```
 
 
 
 # Flags
 
-S - Sign
-Z - Zero
-C - Carry
-O - Overflow
+Name | Meaning
+---|---
+**S** | Sign
+**Z** | Zero
+**C** | Carry
+**O** | Overflow
 
 
 # Instructions
 
-MOV x, y - Assign y to x
-INC x    - Increment x by one
-DEC x    - Decrease x by one
-ADD x, y - Add y to x
-SUB x, y - Subtract y from x
-JMP x    - Jump to x
-CMP x, y - Compare x to y
-LEA x, y - Get adress of y and store it in x (Lead Effective Adress) (Often used with EBX as x)
-LOOP x   - Decrement ECX and Jump to x if not Zero
+Name | Meaning
+---|---
+**MOV** x, y | Assign y to x
+**INC** x    | Increment x by one
+**DEC** x    | Decrease x by one
+**ADD** x, y | Add y to x
+**SUB** x, y | Subtract y from x
+**JMP** x    | Jump to x
+**CMP** x, y | Compare x to y
+**LEA** x, y | Get adress of y and store it in x (Lead Effective Adress) (Often used with EBX as x)
+**LOOP** x   | Decrement ECX and Jump to x if not Zero
 
 
 # Jumps
