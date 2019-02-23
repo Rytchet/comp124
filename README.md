@@ -80,9 +80,9 @@ _asm {
 		mov ecx, 10 ; Set up loop counter
 	loop1: 	
 		push ecx 	; Save ecx on stack
-		lea eax,msg ; Save "Hello World" in EAX
+		lea eax,msg 	; Save "Hello World" in EAX
 		push eax 	; Stack the parameter
-		call printf ; Use function
+		call printf 	; Use function
 		pop eax 	; Eemove param
 		pop ecx 	; Eestore ecx
 		loop loop1 	; Loop based on ecx
@@ -115,12 +115,12 @@ myarray[3] = 7;
 myarray[4] = 9;
 
 _asm {
-		lea ebx,myarray ; addr of array (0th element) in ebx
-		mov ecx,5 		; size of the array in ecx
-		mov eax,0 		; initialise sum to 0
+	lea ebx,myarray ; save adress of array (0th element) in ebx
+	mov ecx,5 	; size of the array in ecx
+	mov eax,0 	; initialise sum to 0
 loop1:  add eax,[ebx] 	; get element pointed to by ebx
-		add ebx,4 		; to point to next integer element
-		loop loop1 		; go round again
+	add ebx,4 	; to point to next integer element
+	loop loop1 	; go round again
 }
 ```
 
@@ -128,11 +128,11 @@ Alternatively:
 
 ```cpp
 _asm {
-		mov ebx, 0 				; start with array offset of zero
-		mov ecx,5 				; size of the array in ecx
-		mov eax,0 				; initialise sum to 0
+	mov ebx, 0 		; start with array offset of zero
+	mov ecx,5 		; size of the array in ecx
+	mov eax,0 		; initialise sum to 0
 loop1: 	add eax, myarray[ebx] 	; use ebx to index array
-		add ebx,4 				; update offset
-		loop loop1 				; go round again
+	add ebx,4 		; update offset
+	loop loop1 		; go round again
 }
 ```
