@@ -1,9 +1,11 @@
 # Registers
- 
-EAX - Accumulator
-EBX - Base
-ECX - Counter
-EDX - Data
+
+Name | Meaning
+---|---
+**EAX** | Accumulator
+**EBX** | Base
+**ECX** | Counter
+**EDX** | Data
 
 ```
 	|  AX  | 16 bit
@@ -56,6 +58,7 @@ Name | Meaning
 
 ### Conditional Jumps
 (assuming execution just after CMP)
+
 Name | Meaning
 ---|---
 **JE** | Equal
