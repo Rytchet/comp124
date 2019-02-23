@@ -43,31 +43,34 @@ Name | Meaning
 
 ### Flag Jumps
 
-JS  - S = 1
-JNS - S = 0
-JZ  - Z = 1
-JNZ - Z = 0
-JC  - C = 1
-JNC - C = 0
-JO  - O = 1
-JNO - O = 0
+Name | Meaning
+---|---
+**JS** | S = 1
+**JNS** | S = 0
+**JZ** | Z = 1
+**JNZ** | Z = 0
+**JC** | C = 1
+**JNC** | C = 0
+**JO** | O = 1
+**JNO** | O = 0
 
 ### Conditional Jumps
 (assuming execution just after CMP)
-
-JE      - Equal
-JNE     - Not Equal
-JG/JNLE - Greater (Not Less or Equal)
-JL/JNGE - Less (Not Greater or Equal)
-JGE/JNL - Greater or Equal (Not Less)
-JLE/JNG - Less or Equal (Not Greater)
+Name | Meaning
+---|---
+**JE** | Equal
+**JNE** | Not Equal
+**JG/JNLE** | Greater (Not Less or Equal)
+**JL/JNGE** | Less (Not Greater or Equal)
+**JGE/JNL** | Greater or Equal (Not Less)
+**JLE/JNG** | Less or Equal (Not Greater)
 
 
 
 # Code Examples
 
 ### Print "Hello World" 10 times
-
+```
 char msg[] = "Hello World\n"; // declare variables in C
 
 _asm {
@@ -82,9 +85,9 @@ _asm {
 		loop loop1 	; Loop based on ecx
 }
 return 0;
-
+```
 ### Fibonacci up to 1000
-
+```
 while1:
 	mov eax,fib2
 	cmp eax,1000
@@ -97,9 +100,9 @@ while1:
 	mov fib2,eax
 	jmp while1
 end_while:
-
+```
 ### Sum the elements of an array
-
+```
 int myarray[5]; // declaration of an array of integers
 
 myarray[0] = 1;
@@ -127,3 +130,4 @@ loop1: 	add eax, myarray[ebx] 	; use ebx to index array
 		add ebx,4 				; update offset
 		loop loop1 				; go round again
 }
+```
