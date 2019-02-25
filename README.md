@@ -6,6 +6,7 @@ Name | Meaning
 **EBX** | Base
 **ECX** | Counter
 **EDX** | Data
+**EIP** | Instruction Pointer (not really a register)
 
 ```
 	        |      AX      | 16 bit
@@ -39,6 +40,8 @@ Name | Meaning
 **CMP** x, y | Compare x to y
 **LEA** x, y | Get adress of y and store it in x (Lead Effective Adress) (Often used with EBX as x)
 **LOOP** x   | Decrement ECX and Jump to x if not Zero
+**CALL** x   | Call function or procedure x
+**RET**      | Retrieve stored return address and put it back into the EIP
 
 
 # Jumps
@@ -68,7 +71,29 @@ Name | Meaning
 **JGE/JNL** | Greater or Equal (Not Less)
 **JLE/JNG** | Less or Equal (Not Greater)
 
+# Procedures
 
+### Declaration of a procedure
+
+```
+label PROC
+	.
+	.
+	.
+	RET
+label ENDP
+```
+
+Then the procedure can be called with `CALL label`
+
+
+### The CALL instruction
+
+**CALL** does the following:
+1. Records the current value of EIP (Instruction Pointer) as the **return address**
+2. Puts the required subroutine address into EIP, so the next instruction to be executed is the first instruction of the subroutine
+
+We can also call C functions with `CALL`
 
 # Code Examples
 
