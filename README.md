@@ -8,12 +8,14 @@ Name | Meaning
 **EDX** | Data
 **EIP** | Instruction Pointer (not really a register)
 
+
 ```
 	        |      AX      | 16 bit
                 |  AH  ||  AL  | 8 bit
 ================================
 |              EAX             | 32 bit
 ```
+Every register is split like this (example with **EBX** - the parts are called BX, BH, and BL)
 
 
 
