@@ -155,6 +155,40 @@ _asm {
 return 0;
 ```
 
+### Print a number
+
+Equivalent of `printf("Number is %d\n", n);`
+
+```cpp
+char msg[] = ”Number is %d\n";
+int n = 157;
+_asm { 
+	push n 		; Push the int first
+	lea eax, msg
+	push eax 	; Now stack the string
+	call printf
+	add esp,8 	; Clean 8 bytes from stack
+}
+return 0;
+```
+
+### Reading input
+
+Reading values can be achieved with calls to `scanf("%d", &num);`
+
+```cpp
+char fmt = “%d”; 
+int num;
+_asm {
+	lea eax, num 	; we need to push the address of num
+	push eax
+	lea eax, format ; now the format string
+	push eax
+	call scanf
+	add esp, 8 	; clean stack
+}
+```
+
 ### Fibonacci up to 1000
 
 ```cpp
