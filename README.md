@@ -6,6 +6,7 @@ Name | Meaning
 **EBX** | Base
 **ECX** | Counter
 **EDX** | Data
+**ESP** | Stack Pointer
 **EIP** | Instruction Pointer (not really a register)
 
 
@@ -92,10 +93,34 @@ Then the procedure can be called with `CALL label`
 ### The CALL instruction
 
 **CALL** does the following:
-1. Records the current value of EIP (Instruction Pointer) as the **return address**
-2. Puts the required subroutine address into EIP, so the next instruction to be executed is the first instruction of the subroutine
+1. Records the current value of **EIP** (Instruction Pointer) as the **return address**
+2. Puts the required subroutine address into **EIP**, so the next instruction to be executed is the first instruction of the subroutine
 
 We can also call C functions with `CALL`
+
+### The RET instruction
+
+**RET** retrieves the stored **return address** and puts it back into the **EIP**
+
+# The Stack
+
+* A Stack is a data structure 
+* The order of storing and retrieving values can be described as **LIFO** (Last In, First Out)
+* Every stack is equipped with two operations, **PUSH** and **POP**
+* **PUSH** and **POP** make use of the **ESP** (Stack Pointer Register)
+* In the x86 architecture the ctack grows **down** in memory
+
+### The PUSH instruction
+
+1. Decrements the address in **ESP** so that it points to a free space on the stack
+2. Writes an item to the memory location pointed to by the **ESP**
+
+### The POP instruction
+
+1. Fetches the item addressed by the **ESP**
+2. Increments the **ESP** by the correct amount to remove the item from the stack
+
+It is the programmer's responsibility to ensure that items are not left on the stack when no longer needed
 
 # Code Examples
 
@@ -116,7 +141,9 @@ _asm {
 }
 return 0;
 ```
+
 ### Fibonacci up to 1000
+
 ```cpp
 while1:
 	mov eax,fib2
@@ -131,7 +158,9 @@ while1:
 	jmp while1
 end_while:
 ```
+
 ### Sum the elements of an array
+
 ```cpp
 int myarray[5]; // declaration of an array of integers
 
@@ -162,4 +191,27 @@ loop1: 	add eax, myarray[ebx] 	; use ebx to index array
 	add ebx,4 		; update offset
 	loop loop1 		; go round again
 }
+```
+
+### Determine bigger of two numbers
+
+```cpp
+/* Call procedure to determine bigger of 2 nos.
+* The numbers are passed in eax and ebx.
+* Result returned in eax
+*/
+
+	mov eax, first
+	mov ebx, second ; CALLING
+	call bigger ; SEQUENCE
+	mov max, eax
+	...
+bigger: proc
+	cmp eax,ebx
+	jl second_big
+	ret
+second_big:
+	mov eax,ebx
+	ret
+bigger: endp
 ```
