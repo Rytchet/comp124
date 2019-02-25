@@ -124,6 +124,19 @@ It is the programmer's responsibility to ensure that items are not left on the s
 
 # Code Examples
 
+### Print "Hello World"
+```cpp
+char msg[] = "Hello World\n"; // declare variables in C
+
+_asm {
+		lea eax, msg	; Put address of string into eax
+		push eax 	; Stack the parameter
+		call printf	; Use library function
+		pop eax 	; Take parameter off stack
+}
+return 0;
+```
+
 ### Print "Hello World" 10 times
 ```cpp
 char msg[] = "Hello World\n"; // declare variables in C
