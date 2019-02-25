@@ -177,12 +177,12 @@ return 0;
 Reading values can be achieved with calls to `scanf("%d", &num);`
 
 ```cpp
-char fmt = “%d”; 
+char fmt[] = “%d”; 
 int num;
 _asm {
 	lea eax, num 	; we need to push the address of num
 	push eax
-	lea eax, format ; now the format string
+	lea eax, fmt ; now the format string
 	push eax
 	call scanf
 	add esp, 8 	; clean stack
