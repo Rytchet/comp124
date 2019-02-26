@@ -127,6 +127,53 @@ It is the programmer's responsibility to ensure that items are not left on the s
 
 # Code Examples
 
+### Full program that takes a number, adds 10 to it and prints it
+
+To run the program you need to use Visual Studio 2017
+If you haven't properly configured VS you may get errors, please refer to the COMP124 Parctical Session 1 for proper configuration
+Common mistakes:
+* Not having headers removed (the first line in this example)
+* Creating a file, and not a cpp project
+
+``cpp
+#include "pch.h" // This may have to be removed depending on your configuration
+#include <iostream>
+
+int main() {
+	char fmt[] = "%d";
+
+	int num;
+
+	_asm {
+		// Reading user input
+		lea eax, num	// Save the adress of num in eax
+		push eax		// Push eax on the stack
+		lea eax, fmt	// Save the adress of the format string in eax
+		push eax		// Push eax on the stack
+		call scanf		// Call scanf, a C function
+		add esp, 8      // Reset the ESP (Stack Pointer)
+		// We need to add 8 to ESP, because both adresses we put on the stack take
+		// up 4 bytes. Now the stack is empty, and we have the user input stored in num
+
+		// Adding 5 to num
+		mov eax, num	// Save the value of num in eax
+		add eax, 10		// Add 10 to eax
+		mov num, eax	// Save the value of 10 to eax
+		// We can't add to num directly
+
+		// Printing num
+		push num		// Push the value of num on the stack
+		lea eax, fmt	// Save the adress of fmt in eax
+		push eax		// Push eax on the stack
+		call printf		// Call printf, a C function
+		add esp, 8		// Reset the ESP
+		// We need to add 8 to ESP because the value of nu, which is an int, takes up
+		// 4 bytes, and the pointer to fmt also takes 4 bytes
+	}
+	return 0;
+}
+```
+
 ### Print "Hello World"
 ```cpp
 char msg[] = "Hello World\n"; // declare variables in C
@@ -139,6 +186,8 @@ _asm {
 }
 return 0;
 ```
+
+We could use **POP** instead of ``add esp, 8`` in this example and it would also work.
 
 ### Print "Hello World" 10 times
 ```cpp
@@ -163,7 +212,7 @@ return 0;
 Equivalent of `printf("Number is %d\n", n);`
 
 ```cpp
-char msg[] = ”Number is %d\n";
+char msg[] = "Number is %d\n";
 int n = 157;
 _asm { 
 	push n 		; Push the int first
@@ -180,7 +229,7 @@ return 0;
 Reading values can be achieved with calls to `scanf("%d", &num);`
 
 ```cpp
-char fmt[] = “%d”; 
+char fmt[] = "%d"; 
 int num;
 _asm {
 	lea eax, num 	; we need to push the address of num
@@ -246,7 +295,7 @@ loop1: 	add eax, myarray[ebx] 	; use ebx to index array
 ### Determine bigger of two numbers
 
 ```cpp
-/* Call procedure to determine bigger of 2 nos.
+/* Call procedure to determine bigger of 2 numbders
 * The numbers are passed in eax and ebx.
 * Result returned in eax
 */
