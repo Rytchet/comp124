@@ -130,8 +130,11 @@ It is the programmer's responsibility to ensure that items are not left on the s
 ### Full program that takes a number, adds 10 to it and prints it
 
 To run the program you need to use Visual Studio 2017
+
 If you haven't properly configured VS you may get errors, please refer to the COMP124 Parctical Session 1 for proper configuration
-Common mistakes:
+
+Common mistakes include:
+
 * Not having headers removed (the first line in this example)
 * Creating a file, and not a cpp project
 
