@@ -138,7 +138,7 @@ Common mistakes include:
 * Not having headers removed (the first line in this example)
 * Creating a file, and not a cpp project
 
-``cpp
+```cpp
 #include "pch.h" // This may have to be removed depending on your configuration
 #include <iostream>
 
@@ -177,6 +177,8 @@ int main() {
 }
 ```
 
+We could use **POP** instead of ``add esp, 8`` in this example and it would also work.
+
 ### Print "Hello World"
 ```cpp
 char msg[] = "Hello World\n"; // declare variables in C
@@ -189,8 +191,6 @@ _asm {
 }
 return 0;
 ```
-
-We could use **POP** instead of ``add esp, 8`` in this example and it would also work.
 
 ### Print "Hello World" 10 times
 ```cpp
