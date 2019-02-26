@@ -150,26 +150,26 @@ int main() {
 	_asm {
 		// Reading user input
 		lea eax, num	// Save the adress of num in eax
-		push eax		// Push eax on the stack
+		push eax	// Push eax on the stack
 		lea eax, fmt	// Save the adress of the format string in eax
-		push eax		// Push eax on the stack
-		call scanf		// Call scanf, a C function
+		push eax	// Push eax on the stack
+		call scanf	// Call scanf, a C function
 		add esp, 8      // Reset the ESP (Stack Pointer)
 		// We need to add 8 to ESP, because both adresses we put on the stack take
 		// up 4 bytes. Now the stack is empty, and we have the user input stored in num
 
 		// Adding 5 to num
 		mov eax, num	// Save the value of num in eax
-		add eax, 10		// Add 10 to eax
+		add eax, 10	// Add 10 to eax
 		mov num, eax	// Save the value of 10 to eax
 		// We can't add to num directly
 
 		// Printing num
-		push num		// Push the value of num on the stack
+		push num	// Push the value of num on the stack
 		lea eax, fmt	// Save the adress of fmt in eax
-		push eax		// Push eax on the stack
-		call printf		// Call printf, a C function
-		add esp, 8		// Reset the ESP
+		push eax	// Push eax on the stack
+		call printf	// Call printf, a C function
+		add esp, 8	// Reset the ESP
 		// We need to add 8 to ESP because the value of nu, which is an int, takes up
 		// 4 bytes, and the pointer to fmt also takes 4 bytes
 	}
