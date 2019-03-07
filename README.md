@@ -203,8 +203,8 @@ _asm {
 		lea eax,msg 	; Save "Hello World" in EAX
 		push eax 	; Stack the parameter
 		call printf 	; Use function
-		pop eax 	; Eemove param
-		pop ecx 	; Eestore ecx
+		pop eax 	; Remove param
+		pop ecx 	; Restore ecx
 		loop loop1 	; Loop based on ecx
 }
 return 0;
