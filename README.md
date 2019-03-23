@@ -11,7 +11,7 @@ Name | Meaning
 **ECX** | Counter
 **EDX** | Data
 **ESP** | Stack Pointer
-**EIP** | Instruction Pointer (not really a register)
+**EIP** | Instruction Pointer
 
 
 ```
