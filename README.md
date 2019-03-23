@@ -1,3 +1,7 @@
+# Comp 124 Assembly Notes
+
+These are my notes concerning x86 Assembly which was taught in the Comp 124 module in the University of Liverpool
+
 # Registers
 
 Name | Meaning
