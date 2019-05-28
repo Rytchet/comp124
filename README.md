@@ -112,7 +112,7 @@ We can also call C functions with `CALL`
 * The order of storing and retrieving values can be described as **LIFO** (Last In, First Out)
 * Every stack is equipped with two operations, **PUSH** and **POP**
 * **PUSH** and **POP** make use of the **ESP** (Stack Pointer Register)
-* In the x86 architecture the ctack grows **down** in memory
+* In the x86 architecture the stack grows **down** in memory
 * The stack is adressed using the **ESP** (Stack Pointer)
 * When adding to the **ESP** you move it upwards, freeing the memory that was previously adressed by it
 * You can move **ESP** yourself, but **PUSH** and **POP** can do it for you
