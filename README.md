@@ -45,7 +45,7 @@ Name | Meaning
 **SUB** x, y | Subtract y from x
 **JMP** x    | Jump to x
 **CMP** x, y | Compare x to y
-**LEA** x, y | Get adress of y and store it in x (Lead Effective Adress) (Often used with EBX as x)
+**LEA** x, y | Get address of y and store it in x (Lead Effective Address) (Often used with EBX as x)
 **LOOP** x   | Decrement ECX and Jump to x if not Zero
 **CALL** x   | Call function or procedure x
 **RET**      | Retrieve stored return address and put it back into the EIP
@@ -113,8 +113,8 @@ We can also call C functions with `CALL`
 * Every stack is equipped with two operations, **PUSH** and **POP**
 * **PUSH** and **POP** make use of the **ESP** (Stack Pointer Register)
 * In the x86 architecture the stack grows **down** in memory
-* The stack is adressed using the **ESP** (Stack Pointer)
-* When adding to the **ESP** you move it upwards, freeing the memory that was previously adressed by it
+* The stack is addressed using the **ESP** (Stack Pointer)
+* When adding to the **ESP** you move it upwards, freeing the memory that was previously addressed by it
 * You can move **ESP** yourself, but **PUSH** and **POP** can do it for you
 
 ### The PUSH instruction
@@ -135,7 +135,7 @@ It is the programmer's responsibility to ensure that items are not left on the s
 
 To run the program you need to use Visual Studio 2017
 
-If you haven't properly configured VS you may get errors, please refer to the COMP124 Parctical Session 1 for proper configuration
+If you haven't properly configured VS you may get errors, please refer to the COMP124 Practical Session 1 for proper configuration
 
 Common mistakes include:
 
@@ -153,13 +153,13 @@ int main() {
 
 	_asm {
 		// Reading user input
-		lea eax, num	// Save the adress of num in eax
+		lea eax, num	// Save the address of num in eax
 		push eax	// Push eax on the stack
-		lea eax, fmt	// Save the adress of the format string in eax
+		lea eax, fmt	// Save the address of the format string in eax
 		push eax	// Push eax on the stack
 		call scanf	// Call scanf, a C function
 		add esp, 8      // Reset the ESP (Stack Pointer)
-		// We need to add 8 to ESP, because both adresses we put on the stack take
+		// We need to add 8 to ESP, because both addresses we put on the stack take
 		// up 4 bytes. Now the stack is empty, and we have the user input stored in num
 
 		// Adding 5 to num
@@ -170,7 +170,7 @@ int main() {
 
 		// Printing num
 		push num	// Push the value of num on the stack
-		lea eax, fmt	// Save the adress of fmt in eax
+		lea eax, fmt	// Save the address of fmt in eax
 		push eax	// Push eax on the stack
 		call printf	// Call printf, a C function
 		add esp, 8	// Reset the ESP
@@ -277,7 +277,7 @@ myarray[3] = 7;
 myarray[4] = 9;
 
 _asm {
-	lea ebx,myarray ; save adress of array (0th element) in ebx
+	lea ebx,myarray ; save address of array (0th element) in ebx
 	mov ecx,5 	; size of the array in ecx
 	mov eax,0 	; initialise sum to 0
 loop1:  add eax,[ebx] 	; get element pointed to by ebx
